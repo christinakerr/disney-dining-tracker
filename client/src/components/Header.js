@@ -1,8 +1,12 @@
+import Button from "./Button"
+
 function Header(){
     return (
         <div>
             {/* Image */}
-            {/* Appropriate buttons */}
+            <Button>Past</Button>
+            <Button>Current</Button>
+            <Button>+</Button>
         </div>
     );
 }
