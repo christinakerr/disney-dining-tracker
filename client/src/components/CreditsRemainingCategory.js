@@ -8,7 +8,7 @@ function CreditsRemainingCategory(props){
                 {props.category}
             </H1>
             <H2>
-                {props.category}
+                {props.remaining}
             </H2>
         </div>
     );
