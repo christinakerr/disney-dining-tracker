@@ -1,12 +1,15 @@
+import H1 from "./Text/H1"
+import H2 from "./Text/H2"
+
 function CreditsRemainingCategory(props){
     return (
         <div>
-            <h1>
+            <H1>
                 {props.category}
-            </h1>
-            <h2>
+            </H1>
+            <H2>
                 {props.category}
-            </h2>
+            </H2>
         </div>
     );
 }
