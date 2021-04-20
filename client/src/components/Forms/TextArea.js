@@ -1,3 +1,6 @@
+/** @jsxImportSource @emotion/react */
+
+
 import P from "../Text/P"
 
 function TextArea(props){

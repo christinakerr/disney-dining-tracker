@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import CreditsRemainingCategory from "./CreditsRemainingCategory"
 
 function CreditsRemaining(){

@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import H6 from "../Text/H6"
 import P from "../Text/P"
 

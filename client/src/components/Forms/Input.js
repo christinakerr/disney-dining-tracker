@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import P from "../Text/P"
 
 function Input(props){
