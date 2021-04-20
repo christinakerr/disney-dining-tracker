@@ -9,6 +9,7 @@ function FoodDetail(){
     return (
         <div>
             <H1>Mickey Ice Cream</H1>
+            <H4>3/21/2018</H4>
             <H2>1 Snack</H2>
             <img src="http://via.placeholder.com/300" alt="placeholder" />
             <H3>Stall in front of the castle</H3>
