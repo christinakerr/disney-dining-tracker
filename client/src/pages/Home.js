@@ -23,6 +23,7 @@ function Home(){
         return (
             <div>
                 <CreditsRemaining />
+                <Button big>Add Food</Button>
                 <FoodItem name="Mickey Ice Cream" credit="1 Snack" location="Stall in front of castle" park="Magic Kingdom"/>
                 <FoodItem name="Breakfast Buffet" credit="1 Table-Service" location="Crystal Palace" park="Magic Kingdom"/>
                 <Button big>Mark Vacation as Completed</Button>
