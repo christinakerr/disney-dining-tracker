@@ -12,7 +12,7 @@ function AddVacation(){
             <Form>
                 <Input type="text" label="Name" input="vacation-name"/>
                 <Input type="number" label="Nights in a Walt Disney World Resort" input="vacation-days"/>
-                <Button>Add</Button>
+                <Button big>Add</Button>
             </Form>
         </div>
     )

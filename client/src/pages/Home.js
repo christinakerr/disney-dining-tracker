@@ -11,7 +11,7 @@ function Home(){
     if(!currentVacation){
         return (
             <div>
-                <Button>Add Disney World Vacation</Button>
+                <Button big>Add Disney World Vacation</Button>
                 <H2>Previous Vacations</H2>
                 <Button>Spring 2020</Button>
                 <Button>Spring 2019</Button>
@@ -25,7 +25,7 @@ function Home(){
                 <CreditsRemaining />
                 <FoodItem name="Mickey Ice Cream" credit="1 Snack" location="Stall in front of castle" park="Magic Kingdom"/>
                 <FoodItem name="Breakfast Buffet" credit="1 Table-Service" location="Crystal Palace" park="Magic Kingdom"/>
-                <Button>Mark Vacation as Completed</Button>
+                <Button big>Mark Vacation as Completed</Button>
             </div>
         );
     }

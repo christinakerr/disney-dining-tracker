@@ -35,7 +35,7 @@ function AddFood(){
 
                 <TextArea input="notes" label="Notes"/>
 
-                <Button>Add Food</Button>
+                <Button big>Add Food</Button>
             </Form>
         </div>
     )
