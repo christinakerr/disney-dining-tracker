@@ -7,9 +7,9 @@ function TextArea(props){
     return (
         <div>
             <label for={props.input}>
-                <P>{props.label}</P>
+                <P label>{props.label}</P>
             </label>
-            <textarea id={props.input} name={props.input} rows="4" cols="30"/>
+            <textarea id={props.input} name={props.input} rows="4" cols="25"/>
         </div>
     );
 }
