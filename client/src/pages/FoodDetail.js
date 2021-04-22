@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import H1 from "../components/Text/H1";
 import H2 from "../components/Text/H2";
 import H3 from "../components/Text/H3";
@@ -5,9 +7,12 @@ import H4 from "../components/Text/H4";
 import P from "../components/Text/P";
 
 
+import { css } from '@emotion/react'
+
+
 function FoodDetail(){
     return (
-        <div>
+        <div css={pageStyles} >
             <H1>Mickey Ice Cream</H1>
             <H4>3/21/2018</H4>
             <H2>1 Snack</H2>
@@ -20,3 +25,7 @@ function FoodDetail(){
 }
 
 export default FoodDetail;
+
+const pageStyles = css`
+    
+`

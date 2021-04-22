@@ -4,7 +4,7 @@ import H2 from "../components/Text/H2";
 import CreditsRemaining from "../components/CreditsRemaining";
 import FoodItem from "../components/FoodItem";
 
-let currentVacation = false;
+let currentVacation = true;
 
 function Home(){
 
