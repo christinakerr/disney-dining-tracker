@@ -18,6 +18,6 @@ export default CreditsRemaining;
 const container = css`
     margin-top: 20px;
     padding: 15px;
-    background-color: gray;
+    background-color: LightGrey;
     display: flex;
 `
