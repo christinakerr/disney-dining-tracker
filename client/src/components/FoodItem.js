@@ -26,11 +26,16 @@ const section = css`
     margin: 10px auto;
     padding: 10px;
     padding-bottom: 15px;
+    h3 {
+        margin: 0;
+    }
 `
 
 const header = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    h2 {
+        margin: 0;
+    }
 `

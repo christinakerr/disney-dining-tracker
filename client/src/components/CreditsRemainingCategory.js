@@ -24,5 +24,8 @@ const section = css`
     text-align: center;
     display: flex;
     flex-direction: column;
+    h2 {
+        margin: 1px;
+    }
 `
 

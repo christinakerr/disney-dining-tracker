@@ -2,9 +2,16 @@
 
 import { css } from '@emotion/react'
 
+function selectStyle (prop, style1, style2) {
+    return prop ? style1 : style2;
+}
+
 function Button(props){
     return (
-        <button css={[props.big ? big : small]}>{props.children}</button>
+        <button css={[
+            selectStyle(props.big, big, small), 
+            selectStyle(props.heading, heading, "")
+        ]}>{props.children}</button>
     );
 }
 
@@ -23,4 +30,10 @@ const small = css`
     padding: 8px;
     margin: 5px 5px 5px 0;
     font-size: 15px;
+`
+
+const heading = css`
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 25px;
 `
