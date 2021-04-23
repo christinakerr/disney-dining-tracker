@@ -9,7 +9,7 @@ function Input(props){
             <label for={props.input}>
                 <P label type={props.type==="radio" ? "radio":""}>{props.label}</P>
             </label>
-            <input css={[props.type==="radio" ? radio:""]} id={props.id || props.input} name={props.input} type={props.type} value={props.value} />
+            <input css={[props.type==="radio" ? radio:""]} id={props.id || props.input} name={props.input} type={props.type} value={props.value} pattern={props.pattern} accept={props.type === "file" ? "image/*": ""} multiple={props.type === "file" ? "multiple" : ""} />
         </div>
     );
 }

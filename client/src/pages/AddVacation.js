@@ -11,7 +11,7 @@ function AddVacation(){
             <H1>Add Vacation</H1>
             <Form>
                 <Input type="text" label="Vacation Name" input="vacation-name"/>
-                <Input type="number" label="Nights in a Walt Disney World Resort" input="vacation-days"/>
+                <Input type="number" pattern="[0-9]*" label="Nights in a Walt Disney World Resort" input="vacation-days"/>
                 <Button big>Add</Button>
             </Form>
         </div>

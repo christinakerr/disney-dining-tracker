@@ -11,12 +11,12 @@ function App() {
     <div>
       <Header />
       <Container>
-        <BrowserRouter>
+        <BrowserRouter basename="/disney-dining-tracker">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/add-vacation" component={AddVacation} />
             <Route path="/detail/:id" component={FoodDetail} />
-            <Route path="/add-food" component={AddFood} />
+            <Route exact path="/add-food" component={AddFood} />
           </Switch>
         </BrowserRouter>
       </Container>
