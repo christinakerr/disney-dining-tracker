@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/disney-dining-tracker/static/js/main.d65809a6.chunk.js",
-    "main.js.map": "/disney-dining-tracker/static/js/main.d65809a6.chunk.js.map",
+    "main.js": "/disney-dining-tracker/static/js/main.936918d3.chunk.js",
+    "main.js.map": "/disney-dining-tracker/static/js/main.936918d3.chunk.js.map",
     "runtime-main.js": "/disney-dining-tracker/static/js/runtime-main.1c564241.js",
     "runtime-main.js.map": "/disney-dining-tracker/static/js/runtime-main.1c564241.js.map",
-    "static/js/2.eaaae4dd.chunk.js": "/disney-dining-tracker/static/js/2.eaaae4dd.chunk.js",
-    "static/js/2.eaaae4dd.chunk.js.map": "/disney-dining-tracker/static/js/2.eaaae4dd.chunk.js.map",
+    "static/js/2.c2e07f76.chunk.js": "/disney-dining-tracker/static/js/2.c2e07f76.chunk.js",
+    "static/js/2.c2e07f76.chunk.js.map": "/disney-dining-tracker/static/js/2.c2e07f76.chunk.js.map",
     "index.html": "/disney-dining-tracker/index.html",
-    "static/js/2.eaaae4dd.chunk.js.LICENSE.txt": "/disney-dining-tracker/static/js/2.eaaae4dd.chunk.js.LICENSE.txt"
+    "static/js/2.c2e07f76.chunk.js.LICENSE.txt": "/disney-dining-tracker/static/js/2.c2e07f76.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1c564241.js",
-    "static/js/2.eaaae4dd.chunk.js",
-    "static/js/main.d65809a6.chunk.js"
+    "static/js/2.c2e07f76.chunk.js",
+    "static/js/main.936918d3.chunk.js"
   ]
 }
