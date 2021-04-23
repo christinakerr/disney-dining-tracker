@@ -19,6 +19,9 @@ function AddFood(){
                 <Button>Add Drink</Button>
                 <Button>Add Dessert</Button>
 
+                <Input type="text" label="Drink" input="drink" display="none"/>
+                <Input type="text" label="Dessert" input="dessert" display="none"/>
+
                 <P label>Dining Credit</P>
 
                 <Input type="radio" id="snack" label="Snack" input="credit" value="snack" />

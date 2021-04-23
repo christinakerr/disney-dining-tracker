@@ -3,13 +3,14 @@
 import P from "../Text/P"
 import { css } from '@emotion/react'
 
-function Input(props){
+
+function Input({ display, input, type, label, id, value, pattern}){
     return (
-        <div>
-            <label for={props.input}>
-                <P label type={props.type==="radio" ? "radio":""}>{props.label}</P>
+        <div css={display === "none"?hidden:""}>
+            <label for={input}>
+                <P label type={type==="radio" ? "radio":""}>{label}</P>
             </label>
-            <input css={[props.type==="radio" ? radio:""]} id={props.id || props.input} name={props.input} type={props.type} value={props.value} pattern={props.pattern} accept={props.type === "file" ? "image/*": ""} multiple={props.type === "file" ? "multiple" : ""} />
+            <input css={[type==="radio" ? radio:""]} id={id || input} name={input} type={type} value={value} pattern={pattern} accept={type === "file" ? "image/*": ""} multiple={type === "file" ? "multiple" : ""}  />
         </div>
     );
 }
@@ -18,4 +19,8 @@ export default Input;
 
 const radio = css`
     float: left;
+`
+
+const hidden = css`
+    display: none;
 `
