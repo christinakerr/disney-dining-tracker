@@ -25,6 +25,7 @@ const section = css`
     background-color: LightGrey;
     margin: 10px auto;
     padding: 10px;
+    padding-top: 0px;
     padding-bottom: 15px;
     h3 {
         margin: 0;
