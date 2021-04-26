@@ -4,9 +4,10 @@ import P from "../Text/P"
 import { css } from '@emotion/react'
 
 
-function Input({ display, input, type, label, id, value, pattern}){
+
+function Input({  input, type, label, id, value, pattern}){
     return (
-        <div css={display === "none"?hidden:""}>
+        <div>
             <label for={input}>
                 <P label type={type==="radio" ? "radio":""}>{label}</P>
             </label>
@@ -19,8 +20,4 @@ export default Input;
 
 const radio = css`
     float: left;
-`
-
-const hidden = css`
-    display: none;
 `

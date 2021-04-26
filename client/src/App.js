@@ -11,7 +11,8 @@ function App() {
     <div>
       <Header />
       <Container>
-        <BrowserRouter basename="/disney-dining-tracker">
+        <BrowserRouter>
+        {/* basename="/disney-dining-tracker" */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/add-vacation" component={AddVacation} />

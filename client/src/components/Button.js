@@ -8,7 +8,8 @@ function selectStyle (prop, style1, style2) {
 
 function Button(props){
     return (
-        <button css={[
+        <button onClick={props.onClick} 
+        css={[
             selectStyle(props.big, big, small), 
             selectStyle(props.heading, heading, "")
         ]}>{props.children}</button>

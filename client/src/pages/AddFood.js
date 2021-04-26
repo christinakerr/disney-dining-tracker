@@ -1,3 +1,7 @@
+/** @jsxImportSource @emotion/react */
+
+import React, { useState} from "react";
+
 import Form from "../components/Forms/Form"
 import Button from "../components/Button";
 import H1 from "../components/Text/H1";
@@ -5,22 +9,45 @@ import Input from "../components/Forms/Input";
 import P from "../components/Text/P";
 import TextArea from "../components/Forms/TextArea"
 
+import { css } from '@emotion/react'
 
-function AddFood(){
-    return(
-        <div>
+function AddFood() {
+
+    const [drinkClass, setDrinkClass] = useState(false);
+    const [dessertClass, setDessertClass] = useState(false);
+
+
+    function addField(event) {
+        event.preventDefault();
+        const content = event.target.textContent;
+
+        if (content === "Add Drink") {
+            setDrinkClass(true);
+        } else if (content === "Add Dessert") {
+            setDessertClass(true);
+        }
+    }
+
+
+    return (
+        <div css={showHide}>
             <H1>Add Food</H1>
             <Form>
-                <Input type="text" label="Park" input="park"/>
-                <Input type="text" label="Restaurant" input="restaurant"/>
-                <Input type="text" label="Food" input="food"/>
+                <Input type="text" label="Park" input="park" />
+                <Input type="text" label="Restaurant" input="restaurant" />
+                <Input type="text" label="Food" input="food" />
                 <br />
 
-                <Button>Add Drink</Button>
-                <Button>Add Dessert</Button>
+                <Button onClick={addField}>Add Drink</Button>
+                <Button onClick={addField}>Add Dessert</Button>
 
-                <Input type="text" label="Drink" input="drink" display="none"/>
-                <Input type="text" label="Dessert" input="dessert" display="none"/>
+                <div className={drinkClass?"show":"hide"}>
+                    <Input type="text" label="Drink" input="drink" />
+                </div>
+                <div className={dessertClass?"show":"hide"}>
+                    <Input type="text" label="Dessert" input="dessert" />
+                </div>
+                
 
                 <P label>Dining Credit</P>
 
@@ -34,7 +61,7 @@ function AddFood(){
 
                 <Input type="date" label="Date" />
 
-                <TextArea input="notes" label="Notes"/>
+                <TextArea input="notes" label="Notes" />
 
                 <Button big>Add Food</Button>
             </Form>
@@ -43,3 +70,13 @@ function AddFood(){
 }
 
 export default AddFood;
+
+const showHide = css`
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+`
