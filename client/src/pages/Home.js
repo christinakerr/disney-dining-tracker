@@ -11,15 +11,18 @@ import React, { useState } from "react";
 function Home() {
 
     const [tempState] = useState(userData);
-    let currentVacation = false;
+    let hasCurrentVacation = false;
+    const previous = tempState.filter(vacation => !vacation.current)
+    const current = tempState.filter(vacation => vacation.current);
+    console.log(current);
 
-    if (tempState.filter(vacation => vacation.current)){
-        currentVacation = true;
+    if (current.length === 1){
+        hasCurrentVacation = true;
     }
 
-    const previous = tempState.filter(vacation => !vacation.current)
+    
 
-    if (!currentVacation) {
+    if (!hasCurrentVacation) {
         return (
             <div>
                 <Button big heading>Add Disney World Vacation</Button>
@@ -37,8 +40,13 @@ function Home() {
             <div>
                 <CreditsRemaining />
                 <Button big>Add Food</Button>
-                <FoodItem name="Mickey Ice Cream" credit="1 Snack" location="Stall in front of castle" park="Magic Kingdom" />
-                <FoodItem name="Breakfast Buffet" credit="1 Table-Service" location="Crystal Palace" park="Magic Kingdom" />
+
+                {
+                    current[0].food.map(item => {
+                        return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} />
+                    })
+                }
+
                 <Button big>Mark Vacation as Complete</Button>
             </div>
         );
@@ -61,7 +69,7 @@ const userData = [
                 restaurant: "Crystal Palace",
                 food: "Breakfast Buffet",
                 drink: "Orange Juice",
-                credit: "table-service",
+                credit: "1 Table-Service",
                 date: 20200321,
             },
             {
@@ -71,7 +79,7 @@ const userData = [
                 food: "Rice Bowl",
                 drink: "Lemonade",
                 dessert: "Brownie",
-                credit: "quick-service",
+                credit: "1 Quick-Service",
                 date: 20200322,
             },
             {
@@ -79,7 +87,7 @@ const userData = [
                 park: "Magic Kingdom",
                 restaurant: "Gaston's Tavern",
                 food: "Cinnamon Roll",
-                credit: "snack",
+                credit: "1 Snack",
                 date: 202003221,
             }
         ]
@@ -96,7 +104,7 @@ const userData = [
                 restaurant: "Crystal Palace",
                 food: "Breakfast Buffet",
                 drink: "Orange Juice",
-                credit: "table-service",
+                credit: "1 Table-Service",
                 date: 20200321,
             },
             {
@@ -106,7 +114,7 @@ const userData = [
                 food: "Rice Bowl",
                 drink: "Lemonade",
                 dessert: "Brownie",
-                credit: "quick-service",
+                credit: "1 Quick-Service",
                 date: 20200322,
             },
             {
@@ -114,7 +122,7 @@ const userData = [
                 park: "Magic Kingdom",
                 restaurant: "Gaston's Tavern",
                 food: "Cinnamon Roll",
-                credit: "snack",
+                credit: "1 Snack",
                 date: 202003221,
             }
         ]
@@ -131,7 +139,7 @@ const userData = [
                 restaurant: "Crystal Palace",
                 food: "Breakfast Buffet",
                 drink: "Orange Juice",
-                credit: "table-service",
+                credit: "1 Table-Service",
                 date: 20200321,
             },
             {
@@ -141,7 +149,7 @@ const userData = [
                 food: "Rice Bowl",
                 drink: "Lemonade",
                 dessert: "Brownie",
-                credit: "quick-service",
+                credit: "1 Quick-Service",
                 date: 20200322,
             },
             {
@@ -149,7 +157,7 @@ const userData = [
                 park: "Magic Kingdom",
                 restaurant: "Gaston's Tavern",
                 food: "Cinnamon Roll",
-                credit: "snack",
+                credit: "1 Snack",
                 date: 202003221,
             }
         ]
