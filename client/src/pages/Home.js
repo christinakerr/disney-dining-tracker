@@ -14,7 +14,7 @@ function Home() {
     let hasCurrentVacation = false;
     const previous = tempState.filter(vacation => !vacation.current)
     const current = tempState.filter(vacation => vacation.current);
-    console.log(current);
+
 
     if (current.length === 1){
         hasCurrentVacation = true;
