@@ -6,11 +6,16 @@ import FoodItem from "../components/FoodItem";
 
 import React, { useState } from "react";
 
-let currentVacation = false;
+
 
 function Home() {
 
     const [tempState] = useState(userData);
+    let currentVacation = false;
+
+    if (tempState.filter(vacation => vacation.current)){
+        currentVacation = true;
+    }
 
     const previous = tempState.filter(vacation => !vacation.current)
 
