@@ -45,11 +45,11 @@ function Home() {
         currentSorted.push(array);
     }
 
-    // const sorted = currentSorted.sort((a, b) => {
-    //     return b[0].date - a[0].date;
-    // })
+    const doubleSorted = currentSorted.sort((a, b) => {
+        return b[0].date - a[0].date;
+    })
 
-    // console.log(sorted);
+    console.log(doubleSorted);
 
     if (!hasCurrentVacation) {
         return (
