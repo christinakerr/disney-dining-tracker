@@ -1,6 +1,7 @@
 
 import Button from "../components/Button";
 import H2 from "../components/Text/H2";
+import H4 from "../components/Text/H4";
 import CreditsRemaining from "../components/CreditsRemaining";
 import FoodItem from "../components/FoodItem";
 
@@ -26,8 +27,7 @@ function Home() {
 
     const currentFood = current[0].food;
 
-
-    for (let i = 0; i < currentFood.length; i++){
+    for (let i = 0; i < currentFood.length; i++) {
 
         const matchingItem = usedItems.find(item => item.date === currentFood[i].date)
 
@@ -37,8 +37,8 @@ function Home() {
         usedItems.push(currentFood[i])
 
         let array = [currentFood[i]];
-        for (let j = 0; j < currentFood.length; j++){
-            if (currentFood[i].date === currentFood[j].date && i !== j){
+        for (let j = 0; j < currentFood.length; j++) {
+            if (currentFood[i].date === currentFood[j].date && i !== j) {
                 array.push(currentFood[j])
             }
         }
@@ -49,7 +49,55 @@ function Home() {
         return b[0].date - a[0].date;
     })
 
-    console.log(doubleSorted);
+    function convertDate(date) {
+
+        const day = date.toString().slice(6);
+        const month = date.toString().slice(4, 6);
+
+        let monthWord;
+        switch (month) {
+            case "01":
+                monthWord = "January "
+                break;
+            case "02":
+                monthWord = "February "
+                break;
+            case "03":
+                monthWord = "March "
+                break;
+            case "04":
+                monthWord = "April "
+                break;
+            case "05":
+                monthWord = "May "
+                break;
+            case "06":
+                monthWord = "June "
+                break;
+            case "07":
+                monthWord = "July "
+                break;
+            case "08":
+                monthWord = "August "
+                break;
+            case "09":
+                monthWord = "September "
+                break;
+            case "10":
+                monthWord = "October "
+                break;
+            case "11":
+                monthWord = "November "
+                break;
+            case "12":
+                monthWord = "December "
+                break;
+            default:
+                break;
+        }
+        return monthWord + day;
+    }
+
 
     if (!hasCurrentVacation) {
         return (
@@ -71,8 +119,16 @@ function Home() {
                 <Button big>Add Food</Button>
 
                 {
-                    current[0].food.map(item => {
-                        return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} />
+                    doubleSorted.map(date => {
+                        return (
+                            [
+                                <H4>{convertDate(date[0].date)}</H4>,
+                                date.map(item => {
+                                    return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} />
+                                })
+                            ]
+                        )
+
                     })
                 }
 
