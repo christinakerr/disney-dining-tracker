@@ -118,11 +118,12 @@ function Home() {
 
                 {
                     doubleSorted.map(date => {
+                        console.log(date);
                         return (
                             [
                                 <H4>{convertDate(date[0].date)}</H4>,
                                 date.map(item => {
-                                    return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} />
+                                    return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} id={item.id} />
                                 })
                             ]
                         )

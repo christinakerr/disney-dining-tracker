@@ -4,18 +4,30 @@ import H2 from "./Text/H2";
 import H5 from "./Text/H5";
 import H3 from "./Text/H3";
 
-import { css } from '@emotion/react'
 
-function FoodItem(props){
+import { css } from '@emotion/react'
+import { useHistory } from 'react-router-dom'
+
+
+function FoodItem({ name, credit, location, park, id }) {
+    const history = useHistory();
+
+    function onClickFoodItem(event) {
+        const path = "/detail/" + id
+        console.log(path);
+
+        history.push(path)
+    }
     return (
-        <div css={section}>
+        <div css={section} onClick={onClickFoodItem}>
             <div css={header}>
-                <H2>{props.name}</H2>
-                <H5>{props.credit}</H5>
+                <H2>{name}</H2>
+                <H5>{credit}</H5>
             </div>
-            <H3>{props.location}</H3>
-            <H3>{props.park}</H3>
+            <H3>{location}</H3>
+            <H3>{park}</H3>
         </div>
+
     );
 }
 
