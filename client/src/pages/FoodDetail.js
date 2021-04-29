@@ -6,11 +6,32 @@ import H3 from "../components/Text/H3";
 import H4 from "../components/Text/H4";
 import P from "../components/Text/P";
 
-
 import { css } from '@emotion/react'
+import { useSelector } from 'react-redux'
+import { useParams } from "react-router-dom";
 
 
 function FoodDetail(){
+    const userData = useSelector((state) => state.userData)
+    // console.log(userData);
+
+    const {id} = useParams();
+
+    let foodItem;
+
+    for (let i = 0; i < userData.length; i ++){
+        const foodArray = userData[i].food
+
+        for (let j = 0; j < foodArray.length; j++){
+
+            if (foodArray[j].id.toString()===id){
+                foodItem = foodArray[j];
+                break;
+            }
+        }
+    }
+
+
     return (
         <div css={pageStyles} >
             <H1>Mickey Ice Cream</H1>

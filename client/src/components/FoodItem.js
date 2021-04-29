@@ -14,7 +14,6 @@ function FoodItem({ name, credit, location, park, id }) {
 
     function onClickFoodItem(event) {
         const path = "/detail/" + id
-        console.log(path);
 
         history.push(path)
     }
