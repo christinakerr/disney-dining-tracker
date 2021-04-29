@@ -3,7 +3,11 @@
 import CreditsRemainingCategory from "./CreditsRemainingCategory"
 import { css } from '@emotion/react'
 
+import { useSelector } from 'react-redux'
+
 function CreditsRemaining(){
+
+    const state = useSelector((state) => state)
 
     const current = userData.filter(vacation => vacation.current);
 
