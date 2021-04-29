@@ -5,9 +5,16 @@ import Home from "./pages/Home"
 import AddVacation from "./pages/AddVacation.js";
 import FoodDetail from "./pages/FoodDetail.js";
 import AddFood from "./pages/AddFood.js";
+import rootReducer from "./reducers/rootReducer"
+
+import {createStore} from 'redux';
+import {Provider} from "react-redux";
+
+const store = createStore(rootReducer);
 
 function App() {
   return (
+    <Provider store={store}>
     <div>
       <Header />
       <Container>
@@ -22,6 +29,7 @@ function App() {
         </BrowserRouter>
       </Container>
     </div>
+    </Provider>
   );
 }
 
