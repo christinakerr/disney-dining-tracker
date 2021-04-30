@@ -3,18 +3,43 @@
 import Button from "./Button"
 import { css } from '@emotion/react'
 
-function Header(){
-    return (
-        <div>
-            <img src="http://via.placeholder.com/50" alt="placeholder" css={image} />
-            <div css={menu}>
-            <Button>Past</Button>
-            <Button>Current</Button>
-            <Button>+</Button>
+// import { currentVacation } from "../utils/filterVacations"
+
+import { useHistory } from 'react-router-dom'
+
+// import { useSelector } from 'react-redux'
+
+function Header() {
+
+    const history = useHistory();
+    console.log(history);
+
+    // const userData = useSelector((state) => state.userData)
+
+    // const current = currentVacation(userData);
+
+    if (window.location.pathname === "/") {
+        return (
+            <div>
+                <img src="http://via.placeholder.com/50" alt="placeholder" css={image} />
+                <div css={menu}>
+                    <Button>Past</Button>
+                </div>
+                <div css={clearfix}></div>
             </div>
-            <div css={clearfix}></div>
-        </div>
-    );
+        );
+    } else {
+        return (
+            <div>
+                <Button onClick={()=>history.goBack()}>{"<-"}</Button>
+                <div css={menu}>
+                    <Button>Past</Button>
+                </div>
+                <div css={clearfix}></div>
+            </div>
+        );
+    }
+
 }
 
 export default Header;

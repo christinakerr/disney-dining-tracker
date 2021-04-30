@@ -21,6 +21,7 @@ function Home() {
     const current = currentVacation(userData);
 
     const history = useHistory();
+
     const params = useParams();
 
     function sortFoods(vacation) {

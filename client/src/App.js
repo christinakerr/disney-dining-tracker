@@ -15,10 +15,12 @@ const store = createStore(rootReducer);
 function App() {
   return (
     <Provider store={store}>
-      <Header />
-      <Container>
+      
         <BrowserRouter>
         {/* basename="/disney-dining-tracker" */}
+
+        <Header />
+      <Container>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/add-vacation" component={AddVacation} />
@@ -26,8 +28,9 @@ function App() {
             <Route path="/vacation/:id" component={Home}/>
             <Route exact path="/add-food" component={AddFood} />
           </Switch>
+          </Container>
         </BrowserRouter>
-      </Container>
+      
     </Provider>
   );
 }
