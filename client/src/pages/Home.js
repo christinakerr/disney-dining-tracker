@@ -7,6 +7,7 @@ import FoodItem from "../components/FoodItem";
 import convertDate from "../utils/convertDate"
 
 import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 
 function Home() {
@@ -17,42 +18,55 @@ function Home() {
     const previous = userData.filter(vacation => !vacation.current)
     const current = userData.filter(vacation => vacation.current);
 
+    let doubleSorted;
+
+    const history = useHistory();
+
     if (current.length === 1) {
         hasCurrentVacation = true;
-    }
 
-    const currentSorted = [];
-    const usedItems = [];
+        const currentSorted = [];
+        const usedItems = [];
 
-    const currentFood = current[0].food;
+        const currentFood = current[0].food;
 
-    for (let i = 0; i < currentFood.length; i++) {
+        for (let i = 0; i < currentFood.length; i++) {
 
-        const matchingItem = usedItems.find(item => item.date === currentFood[i].date)
+            const matchingItem = usedItems.find(item => item.date === currentFood[i].date)
 
-        if (matchingItem) {
-            continue;
-        }
-        usedItems.push(currentFood[i])
-
-        let array = [currentFood[i]];
-        for (let j = 0; j < currentFood.length; j++) {
-            if (currentFood[i].date === currentFood[j].date && i !== j) {
-                array.push(currentFood[j])
+            if (matchingItem) {
+                continue;
             }
+            usedItems.push(currentFood[i])
+
+            let array = [currentFood[i]];
+            for (let j = 0; j < currentFood.length; j++) {
+                if (currentFood[i].date === currentFood[j].date && i !== j) {
+                    array.push(currentFood[j])
+                }
+            }
+            currentSorted.push(array);
         }
-        currentSorted.push(array);
+
+        doubleSorted = currentSorted.sort((a, b) => {
+            return b[0].date - a[0].date;
+        })
     }
 
-    const doubleSorted = currentSorted.sort((a, b) => {
-        return b[0].date - a[0].date;
-    })
+function addVacation(event) {
+    event.preventDefault();
+    const path = "/add-vacation/"
+    history.push(path);
+
+}
+
+
 
 
     if (!hasCurrentVacation) {
         return (
             <div>
-                <Button big heading>Add Disney World Vacation</Button>
+                <Button big heading onClick={addVacation}>Add Disney World Vacation</Button>
                 <H2 center>Previous Vacations</H2>
 
                 {

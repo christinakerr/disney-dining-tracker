@@ -3,7 +3,7 @@ const initialState = {
         {
             id: 1,
             name: "Spring 2020",
-            current: true,
+            current: false,
             nights: 5,
             food: [
                 {
