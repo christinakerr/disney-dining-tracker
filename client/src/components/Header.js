@@ -12,7 +12,6 @@ import { useHistory } from 'react-router-dom'
 function Header() {
 
     const history = useHistory();
-    console.log(history);
 
     // const userData = useSelector((state) => state.userData)
 

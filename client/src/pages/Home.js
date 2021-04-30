@@ -4,9 +4,11 @@ import H2 from "../components/Text/H2";
 import H4 from "../components/Text/H4";
 import CreditsRemaining from "../components/CreditsRemaining";
 import FoodItem from "../components/FoodItem";
+import Container from "../components/Container.js"
+import Header from "../components/Header.js"
 
 import convertDate from "../utils/convertDate"
-import {previousVacations, currentVacation} from "../utils/filterVacations"
+import { previousVacations, currentVacation } from "../utils/filterVacations"
 
 import { useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
@@ -66,7 +68,7 @@ function Home() {
         history.push(path);
     }
 
-    function findVacation(){
+    function findVacation() {
         return previous.find(vacation => vacation.id.toString() === params.id);
     }
 
@@ -82,61 +84,70 @@ function Home() {
     if (window.location.pathname !== "/") {
         return (
             <div>
-                <H1>{findVacation().name}</H1>
-                {
-                    sortFoods("past").map(date => {
-                        return (
-                            <div key={findVacation().date}>
-                                {
-                                    [
-                                        <H4>{convertDate(date[0].date)}</H4>,
-                                        date.map(item => {
-                                            return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} id={item.id} />
-                                        })
-                                    ]
-                                }
-                            </div>
+                <Header />
+                <Container>
+                    <H1>{findVacation().name}</H1>
+                    {
+                        sortFoods("past").map(date => {
+                            return (
+                                <div key={findVacation().date}>
+                                    {
+                                        [
+                                            <H4>{convertDate(date[0].date)}</H4>,
+                                            date.map(item => {
+                                                return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} id={item.id} />
+                                            })
+                                        ]
+                                    }
+                                </div>
 
-                        )
+                            )
 
-                    })
-                }
+                        })
+                    }
+                </Container>
             </div>
         )
     } else if (!hasCurrentVacation) {
         return (
             <div>
-                <Button big heading onClick={addVacation}>Add Disney World Vacation</Button>
-                <H2 center>Previous Vacations</H2>
+                <Header />
+                <Container>
+                    <Button big heading onClick={addVacation}>Add Disney World Vacation</Button>
+                    <H2 center>Previous Vacations</H2>
 
-                {
-                    previous.map(vacation => {
-                        return <Button onClick={previousVacation} key={vacation.id} big>{vacation.name}</Button>
-                    })
-                }
+                    {
+                        previous.map(vacation => {
+                            return <Button onClick={previousVacation} key={vacation.id} big>{vacation.name}</Button>
+                        })
+                    }
+                </Container>
             </div>
         );
     } else {
         return (
             <div>
-                <CreditsRemaining />
-                <Button big>Add Food</Button>
+                <Header />
+                <Container>
+                    <CreditsRemaining />
+                    <Button big>Add Food</Button>
 
-                {
-                    sortFoods("current").map(date => {
-                        return (
-                            [
-                                <H4>{convertDate(date[0].date)}</H4>,
-                                date.map(item => {
-                                    return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} id={item.id} />
-                                })
-                            ]
-                        )
+                    {
+                        sortFoods("current").map(date => {
+                            return (
+                                [
+                                    <H4>{convertDate(date[0].date)}</H4>,
+                                    date.map(item => {
+                                        return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} id={item.id} />
+                                    })
+                                ]
+                            )
 
-                    })
-                }
+                        })
+                    }
 
-                <Button big>Mark Vacation as Complete</Button>
+                    <Button big>Mark Vacation as Complete</Button>
+                </Container>
             </div>
         );
     }

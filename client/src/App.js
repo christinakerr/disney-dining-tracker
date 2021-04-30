@@ -1,5 +1,4 @@
-import Container from "./components/Container.js"
-import Header from "./components/Header.js"
+
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home"
 import AddVacation from "./pages/AddVacation.js";
@@ -18,9 +17,6 @@ function App() {
       
         <BrowserRouter>
         {/* basename="/disney-dining-tracker" */}
-
-        <Header />
-      <Container>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/add-vacation" component={AddVacation} />
@@ -28,7 +24,7 @@ function App() {
             <Route path="/vacation/:id" component={Home}/>
             <Route exact path="/add-food" component={AddFood} />
           </Switch>
-          </Container>
+          
         </BrowserRouter>
       
     </Provider>
