@@ -1,11 +1,12 @@
-
 import Button from "../components/Button";
 import H1 from "../components/Text/H1"
 import H2 from "../components/Text/H2";
 import H4 from "../components/Text/H4";
 import CreditsRemaining from "../components/CreditsRemaining";
 import FoodItem from "../components/FoodItem";
+
 import convertDate from "../utils/convertDate"
+import {previousVacations, currentVacation} from "../utils/filterVacations"
 
 import { useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
@@ -16,38 +17,37 @@ function Home() {
     const userData = useSelector((state) => state.userData)
 
     let hasCurrentVacation = false;
-    const previous = userData.filter(vacation => !vacation.current)
-    const current = userData.filter(vacation => vacation.current);
+    const previous = previousVacations(userData)
+    const current = currentVacation(userData);
 
     const history = useHistory();
     const params = useParams();
 
-
     function sortFoods(vacation) {
-        const currentSorted = [];
+        const sorted = [];
         const usedItems = [];
-        let currentFood;
+        let foodArray;
         if (vacation === "current") {
-            currentFood = current[0].food;
+            foodArray = current[0].food;
         } else {
-            currentFood = findVacation().food;
+            foodArray = findVacation().food;
         }
 
-        for (let i = 0; i < currentFood.length; i++) {
-            const matchingItem = usedItems.find(item => item.date === currentFood[i].date)
+        for (let i = 0; i < foodArray.length; i++) {
+            const matchingItem = usedItems.find(item => item.date === foodArray[i].date)
             if (matchingItem) {
                 continue;
             }
-            usedItems.push(currentFood[i])
-            let array = [currentFood[i]];
-            for (let j = 0; j < currentFood.length; j++) {
-                if (currentFood[i].date === currentFood[j].date && i !== j) {
-                    array.push(currentFood[j])
+            usedItems.push(foodArray[i])
+            let array = [foodArray[i]];
+            for (let j = 0; j < foodArray.length; j++) {
+                if (foodArray[i].date === foodArray[j].date && i !== j) {
+                    array.push(foodArray[j])
                 }
             }
-            currentSorted.push(array);
+            sorted.push(array);
         }
-        return currentSorted.sort((a, b) => {
+        return sorted.sort((a, b) => {
             return b[0].date - a[0].date;
         })
     }
