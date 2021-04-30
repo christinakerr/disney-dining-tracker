@@ -15,7 +15,6 @@ const store = createStore(rootReducer);
 function App() {
   return (
     <Provider store={store}>
-    <div>
       <Header />
       <Container>
         <BrowserRouter>
@@ -24,11 +23,11 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/add-vacation" component={AddVacation} />
             <Route path="/detail/:id" component={FoodDetail} />
+            <Route path="/vacation/:id" component={Home}/>
             <Route exact path="/add-food" component={AddFood} />
           </Switch>
         </BrowserRouter>
       </Container>
-    </div>
     </Provider>
   );
 }
