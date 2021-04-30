@@ -6,6 +6,8 @@ import H3 from "../components/Text/H3";
 import H4 from "../components/Text/H4";
 import P from "../components/Text/P";
 
+import convertDate from "../utils/convertDate"
+
 import { css } from '@emotion/react'
 import { useSelector } from 'react-redux'
 import { useParams } from "react-router-dom";
@@ -13,7 +15,6 @@ import { useParams } from "react-router-dom";
 
 function FoodDetail(){
     const userData = useSelector((state) => state.userData)
-    // console.log(userData);
 
     const {id} = useParams();
 
@@ -31,16 +32,35 @@ function FoodDetail(){
         }
     }
 
+    function foodPhoto() {
+        if (foodItem.photo){
+            return <img src={foodItem.photo} alt="" />
+        }
+    }
+
+    function drink() {
+        if (foodItem.drink){
+            return <H3>{"Drink: " + foodItem.drink}</H3>
+        }
+    }
+    function dessert() {
+        if (foodItem.dessert){
+            return <H3>{"Dessert: " + foodItem.dessert}</H3>
+        }
+    }
 
     return (
         <div css={pageStyles} >
-            <H1>Mickey Ice Cream</H1>
-            <H4 className="date">3/21/2018</H4>
-            <H2>1 Snack</H2>
-            <H3>Stall in front of the castle</H3>
-            <H3>Magic Kingdom</H3>
-            <img src="http://via.placeholder.com/300" alt="placeholder" />
-            <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales sodales mi ut tincidunt. Vestibulum sodales erat sit amet ex volutpat, non ultricies dolor fringilla. Duis dignissim ornare lacinia. Nulla est urna, varius sit amet scelerisque ac, cursus at erat. Integer quis nisl euismod, elementum lacus quis, molestie enim. Donec ullamcorper arcu rutrum fermentum aliquam. Cras sed facilisis purus. Praesent ipsum sem, gravida egestas vulputate quis, cursus nec mi. Sed pretium consectetur velit, viverra sagittis neque aliquam quis. Aenean consectetur nunc quis dui eleifend, at fringilla nisl posuere. Quisque facilisis aliquam ornare. Maecenas at est malesuada nulla venenatis interdum. Vestibulum efficitur in ex eu pulvinar.</P>
+            <H1>{foodItem.food}</H1>
+            {/* me first */}
+            <H4 className="date">{convertDate(foodItem.date)}</H4> 
+            <H2>{foodItem.credit}</H2>
+            <hr />
+            {drink()}
+            {dessert()}
+            <H3>{foodItem.restaurant + ", " + foodItem.park}</H3>
+            {foodPhoto()}
+            <P>{foodItem.notes}</P>
         </div>
     );
 }
