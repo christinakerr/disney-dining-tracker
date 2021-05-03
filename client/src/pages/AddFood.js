@@ -20,6 +20,7 @@ function AddFood() {
     const [dessertClass, setDessertClass] = useState(false);
 
 
+
     function addField(event) {
         event.preventDefault();
         const content = event.target.textContent;
@@ -31,13 +32,30 @@ function AddFood() {
         }
     }
 
+    function handleSubmit(event){
+        event.preventDefault(event);
+        const park = event.target[0].value;
+        const restaurant = event.target[1].value
+        const food = event.target[2].value;
+        const drink = event.target[5].value;
+        const dessert = event.target[6].value;
+        const credit = event.target[7].value;
+        const photo = event.target[12].value;
+        const date = event.target[13].value;
+        const note = event.target[14].value;
+        console.log(park, restaurant, food, drink, dessert, credit);
+        console.log(photo);
+        console.log(date);
+        console.log(note);
+    }
+
 
     return (
         <div css={showHide}>
             <Header />
             <Container>
                 <H1>Add Food</H1>
-                <Form>
+                <Form id="addFood" onSubmit={handleSubmit}>
                     <Input type="text" label="Park" input="park" />
                     <Input type="text" label="Restaurant" input="restaurant" />
                     <Input type="text" label="Food" input="food" />
@@ -56,7 +74,7 @@ function AddFood() {
 
                     <P label>Dining Credit</P>
 
-                    <Input type="radio" id="snack" label="Snack" input="credit" value="snack" />
+                    <Input type="radio" id="snack" label="Snack" input="credit" value="snack"  />
                     <Input type="radio" id="quick-service" label="Quick-Service" input="credit" value="quick-service" />
                     <Input type="radio" id="table-service" label="Table-Service" input="credit" value="table-service" />
                     <Input type="radio" id="two-credit-table-service" label="2 Credit Table-Service" input="credit" value="two-credit-table-service" />
@@ -68,7 +86,7 @@ function AddFood() {
 
                     <TextArea input="notes" label="Notes" />
 
-                    <Button big>Add Food</Button>
+                    <Button big type="submit" form="addFood" value="Add Food">Add Food</Button>
                 </Form>
             </Container>
         </div>

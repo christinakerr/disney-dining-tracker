@@ -1,6 +1,6 @@
 function Form(props){
     return (
-        <form>{props.children}</form>
+        <form id={props.id} onSubmit={props.onSubmit}>{props.children}</form>
     );
 }
 

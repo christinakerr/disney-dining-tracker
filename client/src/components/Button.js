@@ -12,7 +12,12 @@ function Button(props){
         css={[
             selectStyle(props.big, big, small), 
             selectStyle(props.heading, heading, "")
-        ]}>{props.children}</button>
+        ]}
+        type={props.type}
+        form={props.form}
+        value={props.value}
+        >
+            {props.children}</button>
     );
 }
 

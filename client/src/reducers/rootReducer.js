@@ -3,7 +3,7 @@ const initialState = {
         {
             id: 1,
             name: "Spring 2020",
-            current: false,
+            current: true,
             nights: 5,
             food: [
                 {
@@ -132,11 +132,14 @@ const initialState = {
                     date: 20200321,
                 }
             ]
-        }]
+        }
+    ]
 };
 
 export default function rootReducer(state = initialState, action) {
     switch (action.type) {
+        // case 'ADDFOOD':
+
         default:
             return state
     }

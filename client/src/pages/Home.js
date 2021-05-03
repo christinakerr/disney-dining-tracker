@@ -87,10 +87,8 @@ function Home() {
     }
 
     function addVacationDisplay(){
-        console.log(window.location.pathname);
-        if (window.location.pathname !== "/previous-vacations"){
-            <Button big heading onClick={addVacation}>Add Disney World Vacation</Button>
-            
+        if (window.location.pathname === "/"){
+            return <Button big heading onClick={addVacation}>Add Disney World Vacation</Button>
         } else {
             return "";
         }
