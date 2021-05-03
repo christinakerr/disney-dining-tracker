@@ -80,6 +80,12 @@ function Home() {
         history.push(path);
     }
 
+    function addFood(event){
+        event.preventDefault();
+        const path = "/add-food/";
+        history.push(path);
+    }
+
 
     if (window.location.pathname !== "/") {
         return (
@@ -130,7 +136,7 @@ function Home() {
                 <Header />
                 <Container>
                     <CreditsRemaining />
-                    <Button big>Add Food</Button>
+                    <Button big onClick={addFood}>Add Food</Button>
 
                     {
                         sortFoods("current").map(date => {
