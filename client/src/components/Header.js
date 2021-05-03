@@ -3,26 +3,30 @@
 import Button from "./Button"
 import { css } from '@emotion/react'
 
-// import { currentVacation } from "../utils/filterVacations"
+import { previousVacations } from "../utils/filterVacations"
 
 import { useHistory } from 'react-router-dom'
-
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 function Header() {
 
+    const userData = useSelector((state) => state.userData)
     const history = useHistory();
 
-    // const userData = useSelector((state) => state.userData)
-
-    // const current = currentVacation(userData);
+    function hasPastVacations(){
+        if (previousVacations(userData).length > 0){
+            return <Button>Previous Vacations</Button>;
+        } else {
+            return "";
+        }
+    }
 
     if (window.location.pathname === "/") {
         return (
             <div>
                 <img src="http://via.placeholder.com/50" alt="placeholder" css={image} />
                 <div css={menu}>
-                    <Button>Past</Button>
+                    {hasPastVacations()}
                 </div>
                 <div css={clearfix}></div>
             </div>
@@ -32,7 +36,7 @@ function Header() {
             <div>
                 <Button onClick={()=>history.goBack()}>{"<-"}</Button>
                 <div css={menu}>
-                    <Button>Past</Button>
+                    {hasPastVacations()}
                 </div>
                 <div css={clearfix}></div>
             </div>
