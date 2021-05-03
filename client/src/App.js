@@ -23,6 +23,7 @@ function App() {
             <Route path="/detail/:id" component={FoodDetail} />
             <Route path="/vacation/:id" component={Home}/>
             <Route exact path="/add-food" component={AddFood} />
+            <Route exact path="/previous-vacations" component={Home} />
           </Switch>
           
         </BrowserRouter>

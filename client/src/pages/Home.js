@@ -86,8 +86,18 @@ function Home() {
         history.push(path);
     }
 
+    function addVacationDisplay(){
+        console.log(window.location.pathname);
+        if (window.location.pathname !== "/previous-vacations"){
+            <Button big heading onClick={addVacation}>Add Disney World Vacation</Button>
+            
+        } else {
+            return "";
+        }
+    }
 
-    if (window.location.pathname !== "/") {
+
+    if (window.location.pathname !== "/" && window.location.pathname!=="/previous-vacations") {
         return (
             <div>
                 <Header />
@@ -114,12 +124,12 @@ function Home() {
                 </Container>
             </div>
         )
-    } else if (!hasCurrentVacation) {
+    } else if (!hasCurrentVacation || window.location.pathname==="/previous-vacations") {
         return (
             <div>
                 <Header />
                 <Container>
-                    <Button big heading onClick={addVacation}>Add Disney World Vacation</Button>
+                    {addVacationDisplay()}
                     <H2 center>Previous Vacations</H2>
 
                     {

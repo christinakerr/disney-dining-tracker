@@ -13,13 +13,21 @@ function Header() {
     const userData = useSelector((state) => state.userData)
     const history = useHistory();
 
+    function previousVacationsHandler(event){
+        event.preventDefault();
+        const path = "/previous-vacations";
+        history.push(path);
+    }
+
     function hasPastVacations(){
         if (previousVacations(userData).length > 0){
-            return <Button>Previous Vacations</Button>;
+            return <Button onClick={previousVacationsHandler}>Previous Vacations</Button>;
         } else {
             return "";
         }
     }
+
+    
 
     if (window.location.pathname === "/") {
         return (

@@ -3,7 +3,7 @@ const initialState = {
         {
             id: 1,
             name: "Spring 2020",
-            current: true,
+            current: false,
             nights: 5,
             food: [
                 {
@@ -14,6 +14,7 @@ const initialState = {
                     drink: "Orange Juice",
                     credit: "1 Table-Service",
                     date: 20200320,
+                    notes: "Mickey Waffle, cheese omlette, banana bread pudding, strawberries"
                 },
                 {
                     id: 2,
@@ -128,7 +129,7 @@ const initialState = {
                     restaurant: "Gaston's Tavern",
                     food: "Cinnamon Roll",
                     credit: "1 Snack",
-                    date: 202003221,
+                    date: 20200321,
                 }
             ]
         }]
