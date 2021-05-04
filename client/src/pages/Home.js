@@ -12,7 +12,7 @@ import { previousVacations, currentVacation } from "../utils/filterVacations"
 
 import { useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
-
+import {useDispatch} from 'react-redux';
 
 function Home() {
 
@@ -23,7 +23,7 @@ function Home() {
     const current = currentVacation(userData);
 
     const history = useHistory();
-
+    const dispatch = useDispatch();
     const params = useParams();
 
     function sortFoods(vacation) {
@@ -94,6 +94,11 @@ function Home() {
         }
     }
 
+    function markComplete(){
+        dispatch({type: "MARKCOMPLETE"})
+        history.push("/")
+    }
+
 
     if (window.location.pathname !== "/" && window.location.pathname!=="/previous-vacations") {
         return (
@@ -160,7 +165,7 @@ function Home() {
                         })
                     }
 
-                    <Button big>Mark Vacation as Complete</Button>
+                    <Button big onClick={markComplete}>Mark Vacation as Complete</Button>
                 </Container>
             </div>
         );

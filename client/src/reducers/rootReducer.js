@@ -3,7 +3,7 @@ const initialState = {
         {
             id: 1,
             name: "Spring 2020",
-            current: false,
+            current: true,
             nights: 5,
             food: [
                 {
@@ -138,7 +138,7 @@ const initialState = {
 
 export default function rootReducer(state = initialState, action) {
 
-    const vacation = state.userData.filter(vacation=>vacation.current)
+    let vacation = state.userData.filter(vacation=>vacation.current)
     switch (action.type) {
         case 'ADDFOOD':
             // const vacation = state.userData.filter(vacation=>vacation.current)
@@ -153,6 +153,12 @@ export default function rootReducer(state = initialState, action) {
                 return state;
             }
             state.userData.unshift(action.payload)
+            return state;
+        case 'MARKCOMPLETE':
+            if (!vacation) {
+                return state;
+            }
+            vacation[0].current = false;
             return state;
         default:
             return state;
