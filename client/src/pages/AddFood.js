@@ -14,6 +14,8 @@ import Header from "../components/Header.js"
 
 import { css } from '@emotion/react'
 
+import {v4 as uuidv4} from 'uuid';
+
 function AddFood() {
 
     const [drinkClass, setDrinkClass] = useState(false);
@@ -46,6 +48,7 @@ function AddFood() {
         const date = event.target[13].value.replace(/(-)/g, "");
         const note = event.target[14].value;
 
+
         const foodObj = {
             "park": park,
             "restaurant": restaurant,
@@ -54,7 +57,8 @@ function AddFood() {
             "dessert": dessert,
             "credit": credit,
             "date": date,
-            "note": note
+            "note": note,
+            "id": uuidv4()
         }
 
         for (let prop in foodObj){
