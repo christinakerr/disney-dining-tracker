@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { useState } from "react";
+import {useDispatch} from 'react-redux';
 
 import Form from "../components/Forms/Form"
 import Button from "../components/Button";
@@ -11,17 +12,17 @@ import TextArea from "../components/Forms/TextArea"
 import Container from "../components/Container.js"
 import Header from "../components/Header.js"
 
-
 import { css } from '@emotion/react'
-
 import {v4 as uuidv4} from 'uuid';
+import { useHistory } from 'react-router-dom'
 
 function AddFood() {
 
     const [drinkClass, setDrinkClass] = useState(false);
     const [dessertClass, setDessertClass] = useState(false);
 
-
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     function addField(event) {
         event.preventDefault();
@@ -66,7 +67,8 @@ function AddFood() {
                 delete foodObj[prop];
             }
         }
-        console.log(foodObj)
+        dispatch({type: "ADDFOOD", payload: foodObj})
+        history.push("/")
     }
 
 

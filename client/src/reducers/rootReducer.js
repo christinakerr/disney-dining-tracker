@@ -138,7 +138,13 @@ const initialState = {
 
 export default function rootReducer(state = initialState, action) {
     switch (action.type) {
-        // case 'ADDFOOD':
+        case 'ADDFOOD':
+            const vacation = state.userData.filter(vacation=>vacation.current)
+            if (!vacation) {
+                return state;
+            }
+            vacation[0].food.unshift(action.payload);
+            return state;
 
         default:
             return state
