@@ -36,7 +36,7 @@ function AddFood() {
     }
 
     function handleSubmit(event){
-        event.preventDefault(event);
+        event.preventDefault();
 
         const credit = [event.target[7], event.target[8], event.target[9], event.target[10], event.target[11]].filter(selection => selection.checked)[0].value;
 
