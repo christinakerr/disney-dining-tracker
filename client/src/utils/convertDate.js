@@ -1,6 +1,6 @@
 export default function convertDate(date) {
 
-    const day = date.toString().slice(6);
+    let day = parseInt(date.toString().slice(6));
     const month = date.toString().slice(4, 6);
 
     let monthWord;
