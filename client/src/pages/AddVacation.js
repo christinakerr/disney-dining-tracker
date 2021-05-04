@@ -7,12 +7,13 @@ import Header from "../components/Header.js"
 
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-
+import { useHistory } from 'react-router-dom'
 
 
 function AddVacation() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -27,9 +28,10 @@ function AddVacation() {
             "food": [],
             "id": uuidv4()
         }
-        console.log(vacationObj)
         dispatch({type: "ADDVACATION", payload: vacationObj});
+        history.push("/")
     }
+
     return (
         <div>
             <Header />
