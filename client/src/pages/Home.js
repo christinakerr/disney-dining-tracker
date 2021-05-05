@@ -12,7 +12,7 @@ import { previousVacations, currentVacation } from "../utils/filterVacations"
 
 import { useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 function Home() {
 
@@ -80,39 +80,39 @@ function Home() {
         history.push(path);
     }
 
-    function addFood(event){
+    function addFood(event) {
         event.preventDefault();
         const path = "/add-food/";
         history.push(path);
     }
 
-    function addVacationDisplay(){
-        if (window.location.pathname === "/"){
+    function addVacationDisplay() {
+        if (window.location.pathname === "/") {
             return <Button big heading onClick={addVacation}>Add Disney World Vacation</Button>
         } else {
             return "";
         }
     }
 
-    function markComplete(){
-        dispatch({type: "MARKCOMPLETE"})
+    function markComplete() {
+        dispatch({ type: "MARKCOMPLETE" })
         history.push("/")
     }
 
 
-    if (window.location.pathname !== "/" && window.location.pathname!=="/previous-vacations") {
+    if (window.location.pathname !== "/" && window.location.pathname !== "/previous-vacations") {
         return (
             <div>
                 <Header />
                 <Container>
                     <H1>{findVacation().name}</H1>
                     {
-                        sortFoods("past").map(date => {
+                        sortFoods("past").map((date, index) => {
                             return (
-                                <div key={findVacation().date}>
+                                <div key={index}>
                                     {
                                         [
-                                            <H4>{convertDate(date[0].date)}</H4>,
+                                            <H4 id={index}>{convertDate(date[0].date)}</H4>,
                                             date.map(item => {
                                                 return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} id={item.id} />
                                             })
@@ -127,7 +127,7 @@ function Home() {
                 </Container>
             </div>
         )
-    } else if (!hasCurrentVacation || window.location.pathname==="/previous-vacations") {
+    } else if (!hasCurrentVacation || window.location.pathname === "/previous-vacations") {
         return (
             <div>
                 <Header />
@@ -152,14 +152,16 @@ function Home() {
                     <Button big onClick={addFood}>Add Food</Button>
 
                     {
-                        sortFoods("current").map(date => {
+                        sortFoods("current").map((date, index) => {
                             return (
-                                [
-                                    <H4>{convertDate(date[0].date)}</H4>,
-                                    date.map(item => {
-                                        return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} id={item.id} />
-                                    })
-                                ]
+                                <div key={index}>
+                                    {[
+                                        <H4 id={index}>{convertDate(date[0].date)}</H4>,
+                                        date.map(item => {
+                                            return <FoodItem name={item.food} credit={item.credit} location={item.restaurant} park={item.park} key={item.id} id={item.id} />
+                                        })
+                                    ]}
+                                </div>
                             )
 
                         })
