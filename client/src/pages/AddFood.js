@@ -35,6 +35,7 @@ function AddFood() {
     const history = useHistory();
 
     function addField(event) {
+        event.preventDefault()
         const content = event.target.textContent;
 
         if (content === "Add Drink") {
@@ -105,11 +106,11 @@ function AddFood() {
 
                     <P label>Dining Credit *</P>
 
-                    <Input type="radio" id="snack" label="Snack" input="credit" value="1 Snack"   />
-                    <Input type="radio" id="quick-service" label="Quick-Service" input="credit" value="1 Quick-Service" />
-                    <Input type="radio" id="table-service" label="Table-Service" input="credit" value="1 Table-Service" />
-                    <Input type="radio" id="two-credit-table-service" label="2 Credit Table-Service" input="credit" value="2 Table-Service" />
-                    <Input type="radio" id="no-plan" label="Not on Dining Plan" input="credit" value="Not on Plan" />
+                    <Input type="radio" id="snack" label="Snack" input="credit" value="1 Snack" onClick={(e) => setCreditInput(e.target.value)}  />
+                    <Input type="radio" id="quick-service" label="Quick-Service" input="credit" value="1 Quick-Service" onClick={(e) => setCreditInput(e.target.value)} />
+                    <Input type="radio" id="table-service" label="Table-Service" input="credit" value="1 Table-Service" onClick={(e) => setCreditInput(e.target.value)} />
+                    <Input type="radio" id="two-credit-table-service" label="2 Credit Table-Service" input="credit" value="2 Table-Service" onClick={(e) => setCreditInput(e.target.value)} />
+                    <Input type="radio" id="no-plan" label="Not on Dining Plan" input="credit" value="Not on Plan" onClick={(e) => setCreditInput(e.target.value)} />
 
                     <Input type="file" label="Upload Photo" input="photo" stateProp={photoInput} onChange={(e) => setPhotoInput(e.target.value)} />
 
