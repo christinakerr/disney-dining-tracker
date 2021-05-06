@@ -16,6 +16,7 @@ function Button(props){
         type={props.type}
         form={props.form}
         value={props.value}
+        disabled={props.disabled}
         >
             {props.children}</button>
     );

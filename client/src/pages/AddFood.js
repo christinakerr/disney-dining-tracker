@@ -71,6 +71,13 @@ function AddFood() {
         history.push("/")
     }
 
+    // const parkInput = useRef(null);
+    // const restaurantInput = useRef(null);
+    // const foodInput = useRef(null);
+    // const creditInput = useRef(null);
+    // const dateInput = useRef(null);
+    // const submitBtn = useRef(null);
+
 
     return (
         <div css={showHide}>
@@ -78,9 +85,9 @@ function AddFood() {
             <Container>
                 <H1>Add Food</H1>
                 <Form id="addFood" onSubmit={handleSubmit}>
-                    <Input type="text" label="Park" input="park" />
-                    <Input type="text" label="Restaurant" input="restaurant" />
-                    <Input type="text" label="Food" input="food" />
+                    <Input type="text" label="Park *" input="park" />
+                    <Input type="text" label="Restaurant *" input="restaurant" />
+                    <Input type="text" label="Food *" input="food" />
                     <br />
 
                     <Button onClick={addField}>Add Drink</Button>
@@ -94,9 +101,9 @@ function AddFood() {
                     </div>
 
 
-                    <P label>Dining Credit</P>
+                    <P label>Dining Credit *</P>
 
-                    <Input type="radio" id="snack" label="Snack" input="credit" value="1 Snack"  />
+                    <Input type="radio" id="snack" label="Snack" input="credit" value="1 Snack"   />
                     <Input type="radio" id="quick-service" label="Quick-Service" input="credit" value="1 Quick-Service" />
                     <Input type="radio" id="table-service" label="Table-Service" input="credit" value="1 Table-Service" />
                     <Input type="radio" id="two-credit-table-service" label="2 Credit Table-Service" input="credit" value="2 Table-Service" />
@@ -104,11 +111,11 @@ function AddFood() {
 
                     <Input type="file" label="Upload Photo" input="photo" />
 
-                    <Input type="date" label="Date" />
+                    <Input type="date" label="Date *" />
 
                     <TextArea input="notes" label="Notes" />
 
-                    <Button big type="submit" form="addFood" value="Add Food">Add Food</Button>
+                    <Button big type="submit" form="addFood" disabled value="Add Food" >Add Food</Button>
                 </Form>
             </Container>
         </div>
