@@ -18,6 +18,16 @@ import { useHistory } from 'react-router-dom'
 
 function AddFood() {
 
+    const [parkInput, setParkInput] = useState();
+    const [restaurantInput, setRestaurantInput] = useState();
+    const [foodInput, setFoodInput] = useState();
+    const [drinkInput, setDrinkInput] = useState();
+    const [dessertInput, setDessertInput] = useState();
+    const [creditInput, setCreditInput] = useState();
+    const [photoInput, setPhotoInput] = useState();
+    const [dateInput, setDateInput] = useState();
+    const [noteInput, setNoteInput] = useState();
+
     const [drinkClass, setDrinkClass] = useState(false);
     const [dessertClass, setDessertClass] = useState(false);
 
@@ -25,7 +35,6 @@ function AddFood() {
     const history = useHistory();
 
     function addField(event) {
-        event.preventDefault();
         const content = event.target.textContent;
 
         if (content === "Add Drink") {
@@ -71,13 +80,6 @@ function AddFood() {
         history.push("/")
     }
 
-    // const parkInput = useRef(null);
-    // const restaurantInput = useRef(null);
-    // const foodInput = useRef(null);
-    // const creditInput = useRef(null);
-    // const dateInput = useRef(null);
-    // const submitBtn = useRef(null);
-
 
     return (
         <div css={showHide}>
@@ -85,19 +87,19 @@ function AddFood() {
             <Container>
                 <H1>Add Food</H1>
                 <Form id="addFood" onSubmit={handleSubmit}>
-                    <Input type="text" label="Park *" input="park" />
-                    <Input type="text" label="Restaurant *" input="restaurant" />
-                    <Input type="text" label="Food *" input="food" />
+                    <Input type="text" label="Park *" input="park" stateProp={parkInput} onChange={(e) => setParkInput(e.target.value)} />
+                    <Input type="text" label="Restaurant *" input="restaurant" stateProp={restaurantInput} onChange={(e) => setRestaurantInput(e.target.value)}/>
+                    <Input type="text" label="Food *" input="food" stateProp={foodInput} onChange={(e) => setFoodInput(e.target.value)} />
                     <br />
 
                     <Button onClick={addField}>Add Drink</Button>
                     <Button onClick={addField}>Add Dessert</Button>
 
                     <div className={drinkClass ? "show" : "hide"}>
-                        <Input type="text" label="Drink" input="drink" />
+                        <Input type="text" label="Drink" input="drink" stateProp={drinkInput} onChange={(e) => setDrinkInput(e.target.value)} />
                     </div>
                     <div className={dessertClass ? "show" : "hide"}>
-                        <Input type="text" label="Dessert" input="dessert" />
+                        <Input type="text" label="Dessert" input="dessert" stateProp={dessertInput} onChange={(e) => setDessertInput(e.target.value)} />
                     </div>
 
 
@@ -109,11 +111,11 @@ function AddFood() {
                     <Input type="radio" id="two-credit-table-service" label="2 Credit Table-Service" input="credit" value="2 Table-Service" />
                     <Input type="radio" id="no-plan" label="Not on Dining Plan" input="credit" value="Not on Plan" />
 
-                    <Input type="file" label="Upload Photo" input="photo" />
+                    <Input type="file" label="Upload Photo" input="photo" stateProp={photoInput} onChange={(e) => setPhotoInput(e.target.value)} />
 
-                    <Input type="date" label="Date *" />
+                    <Input type="date" label="Date *" stateProp={dateInput} onChange={(e) => setDateInput(e.target.value)} />
 
-                    <TextArea input="notes" label="Notes" />
+                    <TextArea input="notes" label="Notes" value={noteInput} onChange={(e) => setNoteInput(e.target.value)} />
 
                     <Button big type="submit" form="addFood" disabled value="Add Food" >Add Food</Button>
                 </Form>
