@@ -34,6 +34,12 @@ function AddFood() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    let disabled = false;
+
+    if (!parkInput || !restaurantInput || !foodInput || !dateInput || !creditInput){
+        disabled = true;
+    }
+
     function addField(event) {
         event.preventDefault()
         const content = event.target.textContent;
@@ -118,7 +124,7 @@ function AddFood() {
 
                     <TextArea input="notes" label="Notes" value={noteInput} onChange={(e) => setNoteInput(e.target.value)} />
 
-                    <Button big type="submit" form="addFood" disabled value="Add Food" >Add Food</Button>
+                    <Button big type="submit" form="addFood" disabled={disabled} value="Add Food" >Add Food</Button>
                 </Form>
             </Container>
         </div>
