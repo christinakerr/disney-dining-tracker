@@ -54,27 +54,15 @@ function AddFood() {
     function handleSubmit(event){
         event.preventDefault();
 
-        const credit = [event.target[7], event.target[8], event.target[9], event.target[10], event.target[11]].filter(selection => selection.checked)[0].value;
-
-        const park = event.target[0].value;
-        const restaurant = event.target[1].value
-        const food = event.target[2].value;
-        const drink = event.target[5].value;
-        const dessert = event.target[6].value;
-        // const photo = event.target[12].value;
-        const date = event.target[13].value.replace(/(-)/g, "");
-        const note = event.target[14].value;
-
-
         const foodObj = {
-            "park": park,
-            "restaurant": restaurant,
-            "food": food,
-            "drink": drink,
-            "dessert": dessert,
-            "credit": credit,
-            "date": date,
-            "note": note,
+            "park": parkInput,
+            "restaurant": restaurantInput,
+            "food": foodInput,
+            "drink": drinkInput,
+            "dessert": dessertInput,
+            "credit": creditInput,
+            "date": dateInput.replace(/(-)/g, ""),
+            "notes": noteInput,
             "id": uuidv4()
         }
 
