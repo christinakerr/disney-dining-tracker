@@ -26,13 +26,10 @@ function AddVacation() {
     function handleSubmit(event) {
         event.preventDefault();
 
-        const vacation = event.target[0].value;
-        const nights = event.target[1].value;
-
         const vacationObj = {
-            "name": vacation,
+            "name": nameInput,
             "current": true,
-            "nights": nights,
+            "nights": nightsInput,
             "food": [],
             "id": uuidv4()
         }
