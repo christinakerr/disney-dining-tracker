@@ -3,7 +3,7 @@
 import Button from "./Button"
 import { css } from '@emotion/react'
 
-import { previousVacations } from "../utils/filterVacations"
+import { currentVacation, previousVacations } from "../utils/filterVacations"
 
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -20,7 +20,7 @@ function Header() {
     }
 
     function hasPastVacations(){
-        if (previousVacations(userData).length > 0){
+        if (previousVacations(userData).length > 0 && currentVacation(userData).length > 0){
             return <Button onClick={previousVacationsHandler}>Previous Vacations</Button>;
         } else {
             return "";
