@@ -4,8 +4,22 @@ import P from "../Text/P"
 import { css } from '@emotion/react'
 
 
-
 function Input({  input, type, label, id, value, pattern, checked, stateProp, onChange, onClick}){
+
+    const parks = ["Magic Kingdom", "Epcot", "Hollywood Studios", "Animal Kingdom"];
+
+    function dataList(){
+        if (input === "park"){
+            return <datalist id={input}>
+                <option value="whatever" />
+                {/* {
+                    parks.map(park => {
+                        return <option value={park} />
+                    })
+                } */}
+            </datalist>
+        }
+    }
     return (
         <div>
             <label htmlFor={input}>
@@ -19,7 +33,14 @@ function Input({  input, type, label, id, value, pattern, checked, stateProp, on
             accept={type === "file" ? "image/*": ""} 
             multiple={type === "file" ? "multiple" : ""} 
             onChange={onChange} 
-            onClick={onClick} />
+            onClick={onClick}
+            list={input}
+            autocomplete="on" />
+
+            {/* {dataList()} */}
+            <datalist id={input}>
+                <option value="cool" />
+            </datalist>
         </div>
     );
 }

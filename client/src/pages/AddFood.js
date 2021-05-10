@@ -16,7 +16,6 @@ import Header from "../components/Header.js"
 import { css } from '@emotion/react'
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom'
-import DropdownCombobox from "../components/Forms/Combobox";
 
 function AddFood() {
 
@@ -125,10 +124,10 @@ export default AddFood;
 
 const showHide = css`
     .hide {
-        display: none;
+                                display: none;
     }
 
     .show {
-        display: block;
+                                display: block;
     }
 `
