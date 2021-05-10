@@ -53,7 +53,6 @@ function AddFood() {
 
     function handleSubmit(event){
         event.preventDefault();
-
         const foodObj = {
             "park": parkInput,
             "restaurant": restaurantInput,
