@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { useState } from "react";
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Form from "../components/Forms/Form"
 import Button from "../components/Button";
@@ -11,12 +11,15 @@ import P from "../components/Text/P";
 import TextArea from "../components/Forms/TextArea"
 import Container from "../components/Container.js"
 import Header from "../components/Header.js"
+// import DropdownCombobox from "../components/Forms/Combobox"
 
 import { css } from '@emotion/react'
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom'
+import DropdownCombobox from "../components/Forms/Combobox";
 
 function AddFood() {
+
 
     const [parkInput, setParkInput] = useState();
     const [restaurantInput, setRestaurantInput] = useState();
@@ -36,7 +39,7 @@ function AddFood() {
 
     let disabled = false;
 
-    if (!parkInput || !restaurantInput || !foodInput || !dateInput || !creditInput){
+    if (!parkInput || !restaurantInput || !foodInput || !dateInput || !creditInput) {
         disabled = true;
     }
 
@@ -51,7 +54,7 @@ function AddFood() {
         }
     }
 
-    function handleSubmit(event){
+    function handleSubmit(event) {
         event.preventDefault();
         const foodObj = {
             "park": parkInput,
@@ -65,12 +68,12 @@ function AddFood() {
             "id": uuidv4()
         }
 
-        for (let prop in foodObj){
-            if (foodObj.hasOwnProperty(prop) && foodObj[prop] === ""){
+        for (let prop in foodObj) {
+            if (foodObj.hasOwnProperty(prop) && foodObj[prop] === "") {
                 delete foodObj[prop];
             }
         }
-        dispatch({type: "ADDFOOD", payload: foodObj})
+        dispatch({ type: "ADDFOOD", payload: foodObj })
         history.push("/")
     }
 
@@ -82,7 +85,7 @@ function AddFood() {
                 <H1>Add Food</H1>
                 <Form id="addFood" onSubmit={handleSubmit}>
                     <Input type="text" label="Park *" input="park" stateProp={parkInput} onChange={(e) => setParkInput(e.target.value)} />
-                    <Input type="text" label="Restaurant *" input="restaurant" stateProp={restaurantInput} onChange={(e) => setRestaurantInput(e.target.value)}/>
+                    <Input type="text" label="Restaurant *" input="restaurant" stateProp={restaurantInput} onChange={(e) => setRestaurantInput(e.target.value)} />
                     <Input type="text" label="Food *" input="food" stateProp={foodInput} onChange={(e) => setFoodInput(e.target.value)} />
                     <br />
 
@@ -99,7 +102,7 @@ function AddFood() {
 
                     <P label>Dining Credit *</P>
 
-                    <Input type="radio" id="snack" label="Snack" input="credit" value="1 Snack" onClick={(e) => setCreditInput(e.target.value)}  />
+                    <Input type="radio" id="snack" label="Snack" input="credit" value="1 Snack" onClick={(e) => setCreditInput(e.target.value)} />
                     <Input type="radio" id="quick-service" label="Quick-Service" input="credit" value="1 Quick-Service" onClick={(e) => setCreditInput(e.target.value)} />
                     <Input type="radio" id="table-service" label="Table-Service" input="credit" value="1 Table-Service" onClick={(e) => setCreditInput(e.target.value)} />
                     <Input type="radio" id="two-credit-table-service" label="2 Credit Table-Service" input="credit" value="2 Table-Service" onClick={(e) => setCreditInput(e.target.value)} />
