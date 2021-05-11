@@ -16,6 +16,8 @@ import Header from "../components/Header.js"
 import { css } from '@emotion/react'
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom'
+import DatalistParks from "../components/Forms/DatalistParks";
+import DatalistRestaurant from "../components/Forms/DatalistRestaurant"
 
 function AddFood() {
 
@@ -83,8 +85,8 @@ function AddFood() {
             <Container>
                 <H1>Add Food</H1>
                 <Form id="addFood" onSubmit={handleSubmit}>
-                    <Input type="text" label="Park *" input="park" stateProp={parkInput} onChange={(e) => setParkInput(e.target.value)} />
-                    <Input type="text" label="Restaurant *" input="restaurant" stateProp={restaurantInput} onChange={(e) => setRestaurantInput(e.target.value)} />
+                    <DatalistParks type="text" label="Park *" input="park" stateProp={parkInput} onChange={(e) => setParkInput(e.target.value)} />
+                    <DatalistRestaurant type="text" label="Restaurant *" input="restaurant" stateProp={restaurantInput} onChange={(e) => setRestaurantInput(e.target.value)} park={parkInput} />
                     <Input type="text" label="Food *" input="food" stateProp={foodInput} onChange={(e) => setFoodInput(e.target.value)} />
                     <br />
 
