@@ -1,10 +1,11 @@
 import P from "../Text/P"
 
-function DatalistParks({ type, label, input, stateProp, onChange }) {
+function DatalistParks({ type, label, input, stateProp, onChange}) {
 
     const parks = ["Magic Kingdom", "Epcot", "Hollywood Studios", "Animal Kingdom"];
 
     function dataList() {
+
         return <div>
             <datalist id="parks">
                 {
