@@ -10,7 +10,7 @@ function DatalistParks({ type, label, input, stateProp, onChange}) {
             <datalist id="parks">
                 {
                     parks.map(park => {
-                        return <option value={park} />
+                        return <option value={park} key={park} />
                     })
                 }
             </datalist>
