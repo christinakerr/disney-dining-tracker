@@ -8,6 +8,8 @@ import rootReducer from "./reducers/rootReducer"
 
 import {createStore} from 'redux';
 import {Provider} from "react-redux";
+import Register from "./auth/Register";
+import Login from "./auth/Login";
 
 const store = createStore(rootReducer);
 
@@ -24,6 +26,8 @@ function App() {
             <Route path="/vacation/:id" component={Home}/>
             <Route exact path="/add-food" component={AddFood} />
             <Route exact path="/previous-vacations" component={Home} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
           </Switch>
           
         </BrowserRouter>

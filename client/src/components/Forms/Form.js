@@ -1,6 +1,6 @@
 function Form(props){
     return (
-        <form id={props.id} onSubmit={props.onSubmit}>{props.children} noValidate={props.noValidate}</form>
+        <form id={props.id} onSubmit={props.onSubmit} novalidate={props.noValidate}>{props.children}</form>
     );
 }
 
