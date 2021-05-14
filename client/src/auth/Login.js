@@ -6,7 +6,6 @@ import Container from "../components/Container.js"
 import Header from "../components/Header.js"
 import P from "../components/Text/P"
 
-import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom'
 import { useState } from 'react';
