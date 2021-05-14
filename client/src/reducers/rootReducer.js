@@ -1,3 +1,7 @@
+import { combineReducers } from "redux";
+import authReducer from "./authReducers";
+import errorReducer from "./errorReducers";
+
 const initialState = {
     userData: [
         {
@@ -136,7 +140,7 @@ const initialState = {
     ]
 };
 
-export default function rootReducer(state = initialState, action) {
+function rootReducer(state = initialState, action) {
 
     let vacation = state.userData.filter(vacation=>vacation.current)
     switch (action.type) {
@@ -164,3 +168,9 @@ export default function rootReducer(state = initialState, action) {
             return state;
     }
 }
+
+export default combineReducers({
+    rootReducer: rootReducer,
+    auth: authReducer,
+    errors: errorReducer
+})

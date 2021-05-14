@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux';
 
 function Home() {
 
-    const userData = useSelector((state) => state.userData)
+    const userData = useSelector((state) => state.rootReducer.userData)
 
     let hasCurrentVacation = false;
     const previous = previousVacations(userData)

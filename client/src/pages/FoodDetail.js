@@ -16,7 +16,7 @@ import { useParams } from "react-router-dom";
 
 
 function FoodDetail() {
-    const userData = useSelector((state) => state.userData)
+    const userData = useSelector((state) => state.rootReducer.userData)
 
     const { id } = useParams();
 

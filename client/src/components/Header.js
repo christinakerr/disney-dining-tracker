@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux'
 
 function Header() {
 
-    const userData = useSelector((state) => state.userData)
+    const userData = useSelector((state) => state.rootReducer.userData)
     const history = useHistory();
 
     function previousVacationsHandler(event){
