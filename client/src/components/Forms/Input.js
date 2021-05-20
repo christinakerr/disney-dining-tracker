@@ -4,7 +4,7 @@ import P from "../Text/P"
 import { css } from '@emotion/react'
 
 
-function Input({  input, type, label, id, value, pattern, checked, stateProp, onChange, onClick}){
+function Input({  input, type, label, id, value, pattern, checked, stateProp, onChange, onClick, className, errorMsg}){
 
     // const parks = ["Magic Kingdom", "Epcot", "Hollywood Studios", "Animal Kingdom"];
 
@@ -25,6 +25,7 @@ function Input({  input, type, label, id, value, pattern, checked, stateProp, on
             <label htmlFor={input}>
                 <P label type={type==="radio" ? "radio":""}>{label}</P>
             </label>
+            {errorMsg}
             <input css={[type==="radio" ? radio:""]} 
             id={id || input} name={input} 
             type={type} 
@@ -35,7 +36,9 @@ function Input({  input, type, label, id, value, pattern, checked, stateProp, on
             onChange={onChange} 
             onClick={onClick}
             list={input}
-            autocomplete="on" />
+            autocomplete="on"
+            className={className}
+            />
 
             {/* {dataList()}
             <datalist id={input}>
