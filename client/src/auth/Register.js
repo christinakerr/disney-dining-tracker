@@ -51,7 +51,7 @@ function Register() {
         }
     }, [nameInput, emailInput, passwordInput, password2Input, errors])
 
-    registerUser(newUser, history);
+    // registerUser(newUser, history);
 
     return (
         <div>
